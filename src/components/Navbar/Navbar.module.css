@@ -1,0 +1,81 @@
+/* Navbar container */
+.navbar {
+  background-color: white !important; /* Adjust the background color if needed */
+  min-height: 48px;
+  box-shadow: none !important;
+  width: 1440px;
+  border: 0.5px solid #B4B7B7; 
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  min-height: 48px !important; 
+}
+ 
+/* Logo */
+.logo {
+  position: absolute;
+  width: 68px;
+  height: 24px;
+  left: 40px;
+  top: 12px;
+  font-family: 'Inter', sans-serif; /* Ensure the Inter font is available or use a fallback */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+/* Icons container */
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  right: 40px; /* Adjust based on design */
+  top: calc(50% - 18px); /* Center vertically */
+}
+
+/* Icon style */
+.icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #D9D9D9;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* User icon specifics */
+.userIcon {
+  background: #D9D9D9;
+}
+
+.userIcon svg {
+  position: absolute;
+  width: 17.5px;
+  height: 20px;
+  left: calc(50% - 17.5px/2 - 0.25px);
+  top: calc(50% - 20px/2);
+  fill: #333333;
+}
+
+/* Exit icon specifics */
+.exitIcon {
+  background: #D9D9D9;
+}
+
+.exitIcon svg {
+  position: absolute;
+  width: 21px;
+  height: 16px;
+  left: calc(50% - 21px/2 + 0.5px);
+  top: calc(50% - 16px/2);
+  fill: #1E1E1E;
+}
