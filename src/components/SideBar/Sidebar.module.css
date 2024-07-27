@@ -1,5 +1,5 @@
 .navbar {
-    background-color: white !important;
+    background-color: #FBF7FA !important;
     box-shadow: none !important;
     border-top: 0.5px solid #B4B7B7;
     border-right: 0.5px solid #B4B7B7;
@@ -65,5 +65,23 @@
     order: 1;
     flex-grow: 0;
 }
+
+.breadcrumbs-link {
+    width: 53px;
+    height: 17px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1E1E1E;
+    text-transform: capitalize; /* Optional: Capitalize first letter */
+  }
+  
+  .breadcrumbs-separator {
+    font-size: 14px; /* Ensure the separator matches the font size of the text */
+    color: #1E1E1E;
+  }
+  
 
   

@@ -1,4 +1,3 @@
-// src/components/Sidebar.js
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -13,11 +12,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { List } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import { Breadcrumbs, Link, List } from "@mui/material";
+import { useLocation, Link as RouterLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import MenuIcon from '../../svgs/menuIcon'; // Ensure this path is correct
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const drawerWidth = 210;
 
@@ -66,10 +65,33 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+const getBreadcrumbs = (pathname) => {
+  const parts = pathname.split('/').filter(Boolean);
+  return parts.map((part, index) => {
+    const to = `/${parts.slice(0, index + 1).join('/')}`;
+    return (
+      <Link
+        underline="hover"
+        key={to}
+        color="inherit"
+        component={RouterLink}
+        to={to}
+      >
+        {capitalizeFirstLetter(decodeURIComponent(part))}
+      </Link>
+    );
+  });
+};
+
 export default function Sidebar({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const location = useLocation();
+  const breadcrumbs = getBreadcrumbs(location.pathname);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,10 +107,8 @@ export default function Sidebar({ children }) {
         return "Dashboard";
       case "/devices":
         return "Devices";
-      case "/user-details":
-        return "User Details";
       default:
-        return "Persistent drawer";
+        return "User Details";
     }
   };
 
@@ -115,14 +135,12 @@ export default function Sidebar({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            className={styles.title}
-            variant="h6"
-            noWrap
-            component="div"
+          <Breadcrumbs
+            separator={<NavigateNextIcon fontSize="small" />}
+            aria-label="breadcrumb"
           >
-            {getTitle(location.pathname)}
-          </Typography>
+            {breadcrumbs}
+          </Breadcrumbs>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -134,13 +152,14 @@ export default function Sidebar({ children }) {
             boxSizing: "border-box",
             top: "50px",
             border: "none",
+            backgroundColor:"#FBF7FA"
           },
         }}
         variant="persistent"
         anchor="left"
         open={open}
       >
-        <DrawerHeader sx={{ minHeight: "46px !important" }}>
+        <DrawerHeader sx={{ minHeight: "46px !important", backgroundColor: "FBF7FA !important" }}>
           <IconButton
             color="black"
             aria-label="Close drawer"
@@ -162,16 +181,16 @@ export default function Sidebar({ children }) {
         </DrawerHeader>
         <Divider />
         <List className={styles.sidenav} sx={{ paddingTop: "20px" }}>
-          {["Dashboard", "Devices"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemText
-                  primary={text}
-                  className={styles.listItemText}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItem disablePadding>
+            <ListItemButton component={RouterLink} to="/dashboard">
+              <ListItemText primary="Dashboard" className={styles.listItemText} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component={RouterLink} to="/devices">
+              <ListItemText primary="Devices" className={styles.listItemText} />
+            </ListItemButton>
+          </ListItem>
         </List>
         <Divider />
       </Drawer>

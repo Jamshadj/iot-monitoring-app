@@ -1,0 +1,21 @@
+.profileCard {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+  }
+  
+  .logoutButton {
+    border-color: #f44336;
+    color: #f44336;
+  }
+  
+  .logoutButton:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+  }
+  
