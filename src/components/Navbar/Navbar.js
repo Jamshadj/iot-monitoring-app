@@ -9,7 +9,11 @@ const Navbar = () => {
   const navigate = useNavigate(); 
 
   const handleUserIconClick = () => {
-    navigate('/user Details');
+    navigate('/user-details');
+  };
+
+  const handleExitIconClick = () => {
+    window.location.href = 'https://www.estrotech.in/'; 
   };
 
   return (
@@ -17,11 +21,11 @@ const Navbar = () => {
       <Toolbar className={styles.toolbar}>
         <div className={styles.logo}>PanelO</div>
         <div className={styles.icons}>
-          <div onClick={handleUserIconClick}>
-          <UserIcon /> 
+          <div onClick={handleUserIconClick} className={styles.icon}>
+            <UserIcon /> 
           </div>
-          <div>
-          <ExitIcon onClick={handleUserIconClick}/>
+          <div onClick={handleExitIconClick} className={styles.icon}>
+            <ExitIcon />
           </div>
         </div>
       </Toolbar>

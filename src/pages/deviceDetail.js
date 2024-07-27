@@ -4,11 +4,12 @@ import DeviceDetails from "../components/DeviceDetails/DeviceDetails";
 import DeviceData from "../sample-datasets/deviceData.json";
 import { Grid } from "@mui/material";
 import LineChart from "../components/LineChart/LineChart";
-import data1 from "../sample-datasets/data_0.json";
-import data2 from "../sample-datasets/data_1.json";
+import data0 from "../sample-datasets/data_0.json";
+import data1 from "../sample-datasets/data_1.json";
 import ProgressCard from "../components/ProgressCard/ProgressCard";
 import UptimeBar from "../components/UptimeBar/UptimeBar";
 import UptimeJson from "../sample-datasets/uptimeData.json";
+import Layout from "../Layout";
 
 const DeviceDetail = () => {
   const { deviceName } = useParams();
@@ -20,22 +21,29 @@ const DeviceDetail = () => {
     return { labels, dataPoints };
   };
 
-  const { labels, dataPoints: dataPoints1 } = transformData(data1);
-  const { dataPoints: dataPoints2 } = transformData(data2);
+  const { labels, dataPoints: dataPoints0 } = transformData(data0);
+  const { dataPoints: dataPoints1 } = transformData(data1);
+  const dataPoints2 = dataPoints0.map((point, index) => point + dataPoints1[index]);
 
   const chartData = {
     labels,
     datasets: [
       {
         label: "Data-0",
-        data: dataPoints1,
-        borderColor: "#3b82f6",
+        data: dataPoints0,
+        borderColor: "#6975FF",
         fill: false,
       },
       {
         label: "Data-1",
+        data: dataPoints1,
+        borderColor: "#64BDC6",
+        fill: false,
+      },
+      {
+        label: "Data-2",
         data: dataPoints2,
-        borderColor: "#06b6d4",
+        borderColor: "#084FD7",
         fill: false,
       },
     ],
@@ -47,7 +55,10 @@ const DeviceDetail = () => {
     { label: "Data-2", value: 50, color: "#084FD7" },
   ];
 
+  
+
   return (
+    <Layout>
     <div
       className="device-list"
       style={{
@@ -78,6 +89,7 @@ const DeviceDetail = () => {
         </Grid>
       </Grid>
     </div>
+    </Layout>
   );
 };
 

@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+IoT Device Monitoring Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overview
+The IoT Device Monitoring Web App is designed to monitor and manage IoT devices used by brands and FMCGs to promote their products and track customer engagements. The application provides insights into device status, customer engagement data, battery, SIM data, and uptime metrics.
 
-## Available Scripts
+# Features
+User Authentication:
 
-In the project directory, you can run:
+Users can log in with email and password.
+Upon login, users are redirected to the dashboard.
 
-### `npm start`
+Dashboard:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Line Chart (Daily Trend): Visualizes data generated per hour over a 24-hour period.
+Progress Bar Widgets: Display progress towards a target for data 2, showing contributions from data 0 and data 1.
+Uptime Metrics: Bar graph showing device online/offline status and duration.
+Navigation:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Profile Icon: Navigates to user details.
+Logout Icon: Redirects to the Estro Tech Robotics website in a new tab.
+Side Navigation Menu: Toggles side navigation menu.
+Device List: Displays devices with details and allows navigation to the device list page.
+Device Details: Displays detailed information and metrics for selected devices.
+Device Monitoring:
 
-### `npm test`
+Daily Trend Chart: Shows the hourly data of devices for data 0, data 1, and data 2.
+Progress Bar Widgets: Indicate the percentage of data 0 and data 1 as parts of data 2 and progress towards the target.
+Doughnut Chart: Visualizes device availability.
+Offline Devices List: Displays a list of offline devices with timestamps.
+Getting Started
+Prerequisites
+Node.js (v14 or later)
+npm or yarn
+Installation
+Clone the Repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copy code
+git clone https://github.com/Jamshadj/iot-monitoring-app
+cd iot-monitoring-app
+Install Dependencies:
 
-### `npm run build`
+bash
+Copy code
+npm install
+# or
+yarn install
+Run the Development Server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+bash
+Copy code
+npm start
+# or
+yarn start
+The app will be available at http://localhost:3000.

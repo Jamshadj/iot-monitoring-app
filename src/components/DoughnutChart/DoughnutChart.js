@@ -1,4 +1,3 @@
-// components/DoughnutChart.js
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
@@ -9,7 +8,6 @@ import {
 } from "chart.js";
 import { Card, CardContent, Typography } from "@mui/material";
 
-// Register Chart.js components
 Chart.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = ({ doughnutData, doughnutOptions }) => {

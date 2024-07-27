@@ -6,6 +6,7 @@ import LineChart from "../components/LineChart/LineChart";
 import ProgressCard from "../components/ProgressCard/ProgressCard";
 import DoughnutChart from "../components/DoughnutChart/DoughnutChart";
 import OfflineDevicesCard from "../components/OfflineDevicesCard/OfflineDevicesCard";
+import Layout from "../Layout";
 
 const Dashboard = () => {
   const transformData = (data) => {
@@ -42,7 +43,7 @@ const Dashboard = () => {
     ],
   };
 
-  const targetData2 = 1000; // Set target value for data-2
+  const targetData2 = 1000; 
 
   const totalData0 = dataPoints0.reduce((acc, val) => acc + val, 0);
   const totalData1 = dataPoints1.reduce((acc, val) => acc + val, 0);
@@ -103,6 +104,7 @@ const Dashboard = () => {
   };
 
   return (
+    <Layout>
     <div className="flex" style={{ marginTop: "6rem" }}>
       <div className="flex flex-col flex-grow">
         <div className="p-4">
@@ -130,6 +132,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </Layout>
   );
 };
 
